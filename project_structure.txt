@@ -1,0 +1,12 @@
+AI_Research_Intelligence_Pro/
+├── app.py
+├── requirements.txt
+├── README.md
+├── project_structure.txt
+├── .gitignore
+├── .streamlit/
+│   └── config.toml
+└── ui/
+    ├── __init__.py
+    ├── styles.py
+    └── components.py
