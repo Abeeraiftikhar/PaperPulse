@@ -18,7 +18,7 @@ py -3.14 -m streamlit run app.py
 
 ## API key
 
-Open **Workspace settings** inside the app and enter an OpenAI API key, or set `OPENAI\_API\_KEY` in Streamlit Secrets/environment variables.
+Open **Workspace settings** inside the app and enter an Gemini API key, or set `GEMINI\_API\_KEY` in Streamlit Secrets/environment variables.
 
 The model field is editable so deployment can use a model available to the API project.
 
