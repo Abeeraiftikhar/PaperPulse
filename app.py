@@ -372,7 +372,7 @@ def parse_matrix(raw):
 # header
 # =====================================================================
 with st.container(key="ari_nav"):
-    st.markdown('''<div class="ari-brand"><div class="ari-mark">AI</div><div class="ari-brand-text"><div class="ari-brand-name">PaperPulse</div><div class="ari-brand-sub"><span class="ari-brand-platform">AI Research Platform</span><span class="ari-brand-dot"></span><span class="ari-brand-tag">Evidence to insight to synthesis</span></div></div></div>''', unsafe_allow_html=True)
+    st.markdown('''<div class="ari-brand"><div class="ari-mark">PP</div><div class="ari-brand-text"><div class="ari-brand-name">PaperPulse</div><div class="ari-brand-sub"><span class="ari-brand-platform">AI Research Platform</span><span class="ari-brand-dot"></span><span class="ari-brand-tag">Evidence to insight to synthesis</span></div></div></div>''', unsafe_allow_html=True)
 
 with st.container(key="ari_menu"):
     m1, m2, m3, m4, m5 = st.columns([1, 1.15, 1.45, .8, 3.6], vertical_alignment="center")
@@ -744,4 +744,5 @@ elif st.session_state.page in {"Library", "Paper Intelligence", "Compare Papers"
         st.markdown('''<div class="ari-tools"><div class="ari-tool"><div class="ari-tool-title">Research library</div><div class="ari-tool-copy">Work with a focused collection of papers in one session.</div></div><div class="ari-tool"><div class="ari-tool-title">Evidence-first prompts</div><div class="ari-tool-copy">Analysis instructions explicitly discourage unsupported claims.</div></div><div class="ari-tool"><div class="ari-tool-title">Cross-paper reasoning</div><div class="ari-tool-copy">Compare methods, findings, limitations and research gaps.</div></div><div class="ari-tool"><div class="ari-tool-title">Transparent limits</div><div class="ari-tool-copy">Current prototype uses selectable PDF text; scanned-document OCR is not included.</div></div></div>''', unsafe_allow_html=True)
 
 footer()
+
 

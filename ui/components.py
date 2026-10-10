@@ -1,4 +1,4 @@
-"""Reusable UI components."""
+﻿"""Reusable UI components."""
 import streamlit as st
 
 
@@ -26,10 +26,11 @@ def section_head(title, copy):
 def footer():
     st.markdown(
         '''<div class="ari-footer">
-        <strong>AI Research Intelligence</strong><br>
+        <strong>PaperPulse</strong><br>
         A structured workspace for evidence extraction, comparative analysis and literature synthesis.<br>
         Powered by BioCode Innovators · Developed by Abeera Iftikhar<br>
         Bridging Biology, Data Science, and Computational Intelligence
         </div>''',
         unsafe_allow_html=True,
     )
+
