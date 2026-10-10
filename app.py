@@ -1,4 +1,4 @@
-import os
+﻿import os
 import io
 import re
 import json
@@ -20,7 +20,7 @@ from reportlab.lib.units import inch
 from ui.styles import theme_tokens, inject_css
 from ui.components import page_header, section_head, footer
 
-st.set_page_config(page_title="AI Research Intelligence", page_icon=None, layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="PaperPulse", page_icon=None, layout="wide", initial_sidebar_state="collapsed")
 
 
 # =====================================================================
@@ -372,7 +372,7 @@ def parse_matrix(raw):
 # header
 # =====================================================================
 with st.container(key="ari_nav"):
-    st.markdown('''<div class="ari-brand"><div class="ari-mark">AI</div><div class="ari-brand-text"><div class="ari-brand-name">AI Research Intelligence</div><div class="ari-brand-sub"><span class="ari-brand-platform">AI Research Platform</span><span class="ari-brand-dot"></span><span class="ari-brand-tag">Evidence to insight to synthesis</span></div></div></div>''', unsafe_allow_html=True)
+    st.markdown('''<div class="ari-brand"><div class="ari-mark">AI</div><div class="ari-brand-text"><div class="ari-brand-name">PaperPulse</div><div class="ari-brand-sub"><span class="ari-brand-platform">AI Research Platform</span><span class="ari-brand-dot"></span><span class="ari-brand-tag">Evidence to insight to synthesis</span></div></div></div>''', unsafe_allow_html=True)
 
 with st.container(key="ari_menu"):
     m1, m2, m3, m4, m5 = st.columns([1, 1.15, 1.45, .8, 3.6], vertical_alignment="center")
@@ -520,7 +520,7 @@ if st.session_state.page == "Research Library":
 # how it works
 # =====================================================================
 elif st.session_state.page == "How It Works":
-    page_header("WORKFLOW", "From document to research insight.", "AI Research Intelligence separates the research task into clear stages so users can understand what is happening at every point of the workflow.")
+    page_header("WORKFLOW", "From document to research insight.", "PaperPulse separates the research task into clear stages so users can understand what is happening at every point of the workflow.")
     steps = [
         ("01", "Build the library", "Upload one or more selectable-text PDF papers. Each document is stored in the current session as a research source."),
         ("02", "Extract evidence", "The system extracts page-level text and preserves page markers so the analysis has a traceable document context."),
@@ -610,7 +610,7 @@ elif st.session_state.page in {"Library", "Paper Intelligence", "Compare Papers"
                     "You are a comparative literature analyst. Compare the selected research papers using ONLY the supplied text. "
                     "Be concise. Produce these sections: shared research problem; objective differences; methodology comparison; "
                     "dataset/sample comparison; key findings comparison; strengths and limitations; agreement/disagreement; "
-                    "cross-paper research gap; short literature-rpy -3.14 -m streamlit run app.pyeview synthesis.\n\n"
+                    "cross-paper research gap; short literature review synthesis.\n\n"
                     f"PAPERS:\n{paper_context({k: st.session_state.papers[k] for k in selected})}"
                 )
                 result = run_ai(prompt, placeholder=live)
@@ -712,7 +712,7 @@ elif st.session_state.page in {"Library", "Paper Intelligence", "Compare Papers"
         if not st.session_state.papers:
             st.warning("Analyze at least one paper first.")
         else:
-            parts = ["# AI Research Intelligence Report", "", f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}", "", "## Research Library"]
+            parts = ["# PaperPulse Report", "", f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}", "", "## Research Library"]
             for name, data in st.session_state.papers.items():
                 parts.append(f"- {name} — {data['pages']} pages")
             for paper, modules in st.session_state.analyses.items():
@@ -730,17 +730,18 @@ elif st.session_state.page in {"Library", "Paper Intelligence", "Compare Papers"
             st.text_area("Report preview", report, height=480)
             c1, c2 = st.columns(2)
             with c1:
-                st.download_button("Download Markdown report", report, file_name="ai_research_intelligence_report.md", mime="text/markdown", width="stretch")
+                st.download_button("Download Markdown report", report, file_name="paperpulse_report.md", mime="text/markdown", width="stretch")
             with c2:
-                pdf_bytes = make_pdf("AI Research Intelligence Report", report)
+                pdf_bytes = make_pdf("PaperPulse Report", report)
                 if pdf_bytes:
-                    st.download_button("Download PDF report", pdf_bytes, file_name="ai_research_intelligence_report.pdf", mime="application/pdf", width="stretch")
+                    st.download_button("Download PDF report", pdf_bytes, file_name="paperpulse_report.pdf", mime="application/pdf", width="stretch")
                 else:
                     st.caption("PDF could not be generated for this content. Use the Markdown download.")
 
     # ------------------------------------------------------------ About
     else:
-        page_header("ABOUT", "Built for structured research thinking.", "AI Research Intelligence is designed to help researchers move from reading papers to organizing evidence, comparing studies and drafting synthesis.")
+        page_header("ABOUT", "Built for structured research thinking.", "PaperPulse is designed to help researchers move from reading papers to organizing evidence, comparing studies and drafting synthesis.")
         st.markdown('''<div class="ari-tools"><div class="ari-tool"><div class="ari-tool-title">Research library</div><div class="ari-tool-copy">Work with a focused collection of papers in one session.</div></div><div class="ari-tool"><div class="ari-tool-title">Evidence-first prompts</div><div class="ari-tool-copy">Analysis instructions explicitly discourage unsupported claims.</div></div><div class="ari-tool"><div class="ari-tool-title">Cross-paper reasoning</div><div class="ari-tool-copy">Compare methods, findings, limitations and research gaps.</div></div><div class="ari-tool"><div class="ari-tool-title">Transparent limits</div><div class="ari-tool-copy">Current prototype uses selectable PDF text; scanned-document OCR is not included.</div></div></div>''', unsafe_allow_html=True)
 
 footer()
+
