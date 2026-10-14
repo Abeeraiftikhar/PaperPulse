@@ -52,7 +52,7 @@ except Exception:
 # Defaults + models your key can really use (asked from the API) + automatic fallback on 404.
 # To force one model, set GEMINI_MODEL = "model-name" in .streamlit/secrets.toml.
 DEFAULT_MODELS = ["gemini-3.8-flash", "gemini-flash-latest"]
-_SKIP_WORDS = ("image", "tts", "live", "audio", "native", "robotics", "computer-use", "embedding", "imagen", "veo")
+_SKIP_WORDS = ("omni", "transcribe", "image", "tts", "live", "audio", "native", "robotics", "computer-use", "embedding", "imagen", "veo")
 
 
 @st.cache_data(ttl=3600, show_spinner=False)
@@ -222,7 +222,7 @@ def _classify(exc):
     low = msg.lower()
     if "404" in msg or "not_found" in low or "no longer available" in low or "is not found" in low:
         return "missing"
-    if "think" in low and ("400" in msg or "invalid_argument" in low):
+    if "400" in msg or "invalid_argument" in low:
         return "thinking"
     if any(t in msg for t in ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "INTERNAL", "DEADLINE")) or any(
         t in low for t in ("timeout", "timed out", "readtimeout", "connection")
@@ -744,5 +744,7 @@ elif st.session_state.page in {"Library", "Paper Intelligence", "Compare Papers"
         st.markdown('''<div class="ari-tools"><div class="ari-tool"><div class="ari-tool-title">Research library</div><div class="ari-tool-copy">Work with a focused collection of papers in one session.</div></div><div class="ari-tool"><div class="ari-tool-title">Evidence-first prompts</div><div class="ari-tool-copy">Analysis instructions explicitly discourage unsupported claims.</div></div><div class="ari-tool"><div class="ari-tool-title">Cross-paper reasoning</div><div class="ari-tool-copy">Compare methods, findings, limitations and research gaps.</div></div><div class="ari-tool"><div class="ari-tool-title">Transparent limits</div><div class="ari-tool-copy">Current prototype uses selectable PDF text; scanned-document OCR is not included.</div></div></div>''', unsafe_allow_html=True)
 
 footer()
+
+
 
 
