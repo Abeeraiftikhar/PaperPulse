@@ -1,82 +1,55 @@
-﻿# \# PaperPulse - Professional UI Edition
+# PaperPulse
 
-# 
+**AI-powered research paper analysis workspace.**
 
-# A Streamlit research-analysis workspace that turns research-paper PDFs into structured insight: extract methods, results and gaps, compare studies, build evidence matrices, chat across your library, draft literature reviews, and export Markdown or PDF reports. It uses the Gemini API and supports light and dark themes.
+PaperPulse is a Streamlit app that turns research-paper PDFs into structured insight. Upload papers, extract key information, compare studies, and draft literature-review notes in one place. It uses the Gemini API and supports light and dark themes.
 
-# 
+## Features
 
-# \## Run on Windows
+- **Research Library**: upload and manage PDF papers
+- **Paper Intelligence**: research question, methods, results, limitations and gaps
+- **Compare Papers**: side-by-side comparison across studies
+- **Evidence Matrix**: structured table, downloadable as CSV
+- **Research Chat**: ask questions across your uploaded papers
+- **Literature Review**: cross-paper synthesis draft
+- **Export Report**: download as Markdown or PDF
+- **Light / Dark theme**
 
-# 
+## Quick Start
 
-# ```
+```bash
+git clone https://github.com/Abeeraiftikhar/PaperPulse.git
+cd PaperPulse
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-# py -m pip install -r requirements.txt
+On Windows you can also use `py -m pip install -r requirements.txt` and `py -m streamlit run app.py`.
 
-# py -m streamlit run app.py
+## API Key Setup
 
-# ```
+Create a file `.streamlit/secrets.toml` (see `.streamlit/secrets.toml.example`) and add:
 
-# 
+```toml
+GEMINI_API_KEY
+GEMINI_MODEL = "gemini-3.6-flash"
+```
 
-# \## API key
+## Project Structure
 
-# 
+```
+app.py                 main Streamlit app
+ui/                    design system and reusable components
+.streamlit/            Streamlit config and secrets template
+requirements.txt       Python dependencies
+```
 
-# Create a file `.streamlit/secrets.toml` (see `.streamlit/secrets.toml.example`) and add:
+## Limitations
 
-# 
+- Only selectable-text PDFs are supported. Scanned PDFs need OCR.
+- Figures and tables are not interpreted.
+- AI output can contain mistakes, so always verify it against the original paper.
 
-# ```
+## Credits
 
-# GEMINI\_API\_KEY = "your\_key\_here"
-
-# GEMINI\_MODEL = "gemini-3.6-flash"
-
-# ```
-
-# 
-
-# On Streamlit Cloud, paste the same two lines in \*\*Advanced settings -> Secrets\*\*. Never upload your real key to GitHub.
-
-# 
-
-# \## Included modules
-
-# 
-
-# \* Research Library
-
-# \* Paper Intelligence
-
-# \* Compare Papers
-
-# \* Evidence Matrix
-
-# \* Research Chat
-
-# \* Literature Review
-
-# \* Export Report
-
-# \* How It Works
-
-# \* Light / Dark theme switch
-
-# 
-
-# \## UI structure
-
-# 
-
-# The `ui/` folder contains the visual design system and reusable components so the interface can be maintained separately from the research workflow logic.
-
-# 
-
-# \## Important limitation
-
-# 
-
-# This prototype extracts selectable PDF text. Scanned PDFs require OCR, and figure/table understanding requires a multimodal document-analysis layer. AI-generated research output should always be verified against the original paper.
-
+Powered by BioCode Innovators. Developed by Abeera Iftikhar.
